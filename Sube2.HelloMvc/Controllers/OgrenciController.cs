@@ -58,14 +58,14 @@ namespace Sube2.HelloMvc.Controllers
             }
         }
 
-        // Öğrenci detay sayfası
+        
         [HttpGet]
         public IActionResult OgrenciDetay(int id)
         {
             return View();
         }
 
-        // AJAX ile öğrenci detaylarını getir
+       
         [HttpGet]
         public JsonResult GetOgrenci(int id)
         {
@@ -77,7 +77,7 @@ namespace Sube2.HelloMvc.Controllers
             return Json(new { success = true, data = ogr });
         }
 
-        // AJAX ile öğrenci güncelleme
+       
         [HttpPost]
         public JsonResult UpdateOgrenci(Ogrenci ogr)
         {
@@ -97,7 +97,7 @@ namespace Sube2.HelloMvc.Controllers
             }
         }
 
-        // AJAX ile öğrenci silme
+      
         [HttpPost]
         public JsonResult DeleteOgrenci(int id)
         {
