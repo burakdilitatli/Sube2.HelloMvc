@@ -29,9 +29,7 @@
 @section Scripts {
     <script>
         $(document).ready(function() {
-            // Kaydet butonuna tıklandığında
             $("#btnKaydet").click(function() {
-                // Form verileri
                 var formData = {
                     Ad: $("#Ad").val(),
                     Soyad: $("#Soyad").val()
@@ -48,12 +46,9 @@
                     data: formData,
                     success: function(response) {
                         if (response.success) {
-                            // Başarılı mesajı göster
                             showAlert(true, response.message);
-                            // Formu temizle
                             $("#ogrenciEkleForm")[0].reset();
                         } else {
-                            // Hata mesajı göster
                             showAlert(false, response.message);
                         }
                     },
