@@ -13,8 +13,7 @@ namespace Sube2.HelloMvc.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            // Varsayılan olarak appsettings.json'dan gelen bağlantı dizesini kullanacağız
-            // Bu metot sadece DbContext'in doğrudan oluşturulması durumunda çağrılır
+            
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(@"Data Source=TYWEX\MALACHITEGREEN;Initial Catalog=OkulDBMVCSube2;Integrated Security=true;TrustServerCertificate=true");
