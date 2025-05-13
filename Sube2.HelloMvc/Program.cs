@@ -9,7 +9,6 @@ namespace Sube2.HelloMvc
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<OkulDbContext>(options => 
@@ -17,14 +16,12 @@ namespace Sube2.HelloMvc
 
             var app = builder.Build();
 
-            // Veritabanını oluşturmak için
             using (var scope = app.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 try
                 {
                     var context = services.GetRequiredService<OkulDbContext>();
-                    // Veritabanı yoksa oluştur
                     context.Database.EnsureCreated();
                 }
                 catch (Exception ex)
@@ -34,7 +31,6 @@ namespace Sube2.HelloMvc
                 }
             }
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
