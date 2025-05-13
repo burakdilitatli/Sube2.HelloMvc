@@ -60,16 +60,13 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            // Öğrenci listesini yükle
             loadOgrenciList();
 
-            // Öğrenci Kaydet butonu için event listener
             $("#btnKaydet").click(function () {
                 updateOgrenci();
             });
         });
 
-        // Tüm öğrencileri yükle
         function loadOgrenciList() {
             $.ajax({
                 url: '/Ogrenci/GetOgrenciList',
@@ -110,7 +107,6 @@
                         $('#ogrenciAd').val(ogrenci.ad);
                         $('#ogrenciSoyad').val(ogrenci.soyad);
                         
-                        // Modalı aç
                         var myModal = new bootstrap.Modal(document.getElementById('ogrenciDetayModal'));
                         myModal.show();
                     } else {
@@ -123,7 +119,6 @@
             });
         }
 
-        // Öğrenciyi güncelle
         function updateOgrenci() {
             var formData = {
                 Ogrenciid: $('#ogrenciId').val(),
@@ -137,9 +132,7 @@
                 data: formData,
                 success: function (response) {
                     if (response.success) {
-                        // Modalı kapat
                         $('#ogrenciDetayModal').modal('hide');
-                        // Öğrenci listesini yenile
                         loadOgrenciList();
                         showAlert(true, response.message);
                     } else {
